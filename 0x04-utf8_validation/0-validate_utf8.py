@@ -1,3 +1,6 @@
+#!/usr/bin/python3
+
+
 def validUTF8(data):
     # Number of bytes in the current character
     n_bytes = 0
