@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""lockboxes to determine if
+ if all the boxes can be opened.
+"""
 from typing import List
 
 def canUnlockAll(boxes: List[List[int]]) -> bool:
