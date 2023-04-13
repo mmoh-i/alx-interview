@@ -13,15 +13,15 @@ def canUnlockAll(boxes: List[List[int]]) -> bool:
     unlcked_boxes[0] = True
 
     # Use a stack to keep track of boxes that we can currently unlock
-    stack = [0]
+    lines = [0]
 
-    while stack:
-        box_num = stack.pop()
+    while lines:
+        box_num = lines.pop()
         box = boxes[box_num]
         for key in box:
             # Check that the key corresponds to a valid box and that the box hasn't already been unlocked
-            if key < num_boxes and not unlocked_boxes[key]:
+            if key < num_boxes and not unlcked_boxes[key]:
                 unlcked_boxes[key] = True
-                stack.append(key)
+                lines.append(key)
 
-    return all(unlocked_boxes)
+    return all(unlcked_boxes)
