@@ -2,9 +2,9 @@
 """lockboxes to determine if
  if all the boxes can be opened.
 """
-from typing import List
 
-def canUnlockAll(boxes: List[List[int]]) -> bool:
+
+def canUnlockAll(boxes):
     """
     Determines whether all the boxes in the list can be opened.
     """
