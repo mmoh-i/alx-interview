@@ -1,4 +1,4 @@
-#!usr/bin/python3
+#!/usr/bin/python3
 """function that executes only 
 two opreations copy and paste"""
 
