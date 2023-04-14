@@ -11,8 +11,6 @@ def canUnlockAll(boxes):
     num_boxes = len(boxes)
     unlcked_boxes = [False] * num_boxes
     unlcked_boxes[0] = True
-
-    # Use a stack to keep track of boxes that we can currently unlock
     lines = [0]
 
     while lines:
