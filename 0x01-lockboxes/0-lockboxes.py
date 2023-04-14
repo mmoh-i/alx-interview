@@ -17,8 +17,8 @@ def canUnlockAll(boxes):
         box_num = lines.pop()
         box = boxes[box_num]
         for key in box:
-            ''' Check that the key corresponds to 
-            a valid box and that 
+            ''' Check that the key corresponds to
+            a valid box and that
             Box the box hasn't already been unlocked'''
             if key < num_boxes and not unlcked_boxes[key]:
                 unlcked_boxes[key] = True
