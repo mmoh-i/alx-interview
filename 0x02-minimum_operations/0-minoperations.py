@@ -1,4 +1,8 @@
 #!usr/bin/python3
+"""function that executes only 
+two opreations copy and paste"""
+
+
 def minOperations(n):
     if n == 1:
         return 0  # If n is already 1, no operations are needed.
