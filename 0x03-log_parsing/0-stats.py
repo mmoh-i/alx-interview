@@ -4,34 +4,37 @@
 
 import sys
 
-status_code = {'200': 0, '301': 0, '400': 0, '401': 0,
-         '403': 0, '404': 0, '405': 0, '500': 0}
+# Initialize variables
 total_size = 0
-counter = 0
+status_codes = {200: 0, 301: 0, 400: 0, 401: 0, 403: 0, 404: 0, 405: 0, 500: 0}
+line_count = 0
 
-try:
-    for line in sys.stdin:
-        line_list = line.split(" ")
-        if len(line_list) > 4:
-            code = line_list[-2]
-            size = int(line_list[-1])
-            if code in status_code.keys():
-                status_code[code] += 1
-            total_size += size
-            counter += 1
+# Read input from STDIN
+for line in sys.stdin:
+    # Parse the line
+    try:
+        parts = line.split()
+        ip_address = parts[0]
+        status_code = int(parts[8])
+        file_size = int(parts[9])
+    except:
+        # If the line cannot be parsed, skip it
+        continue
 
-        if counter == 10:
-            counter = 0
-            print('File size: {}'.format(total_size))
-            for key, value in sorted(status_code.items()):
-                if value != 0:
-                    print('{}: {}'.format(key, value))
+    # Update variables
+    total_size += file_size
+    status_codes[status_code] += 1
+    line_count += 1
 
-except Exception as err:
-    pass
+    # Print statistics after every 10 lines
+    if line_count % 10 == 0:
+        print("Total file size: File size: {}".format(total_size))
+        for code, count in sorted(status_codes.items()):
+            if count > 0:
+                print("{}: {}".format(code, count))
 
-finally:
-    print('File size: {}'.format(total_size))
-    for key, value in sorted(status_code.items()):
-        if value != 0:
-            print('{}: {}'.format(key, value))
+# Print final statistics
+print("Total file size: File size: {}".format(total_size))
+for code, count in sorted(status_codes.items()):
+    if count > 0:
+        print("{}: {}".format(code, count)))
