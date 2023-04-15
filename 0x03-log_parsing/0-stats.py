@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-'''a script that reads stdin line by line and computes metrics'''
+'''a script to read stdin line by line and computes metrics'''
 
 
 import sys
@@ -20,8 +20,8 @@ try:
             total_size += size
             counter += 1
 
-        if counter % 10 == 0:
-            #counter = 0
+        if counter == 10:
+            counter = 0
             print('File size: {}'.format(total_size))
             for key, value in sorted(status_code.items()):
                 if value != 0:
